@@ -23,7 +23,7 @@ Usage
 // simple resize
 Yii::app()->resizeManager->resize($srcPath, $dstPath, $params);
 
-// crete thumb nad put in to pholder with suffix
+// crete thumb and put in to folder with suffix
 Yii::app()->resizeManager->thumb($src, $params, $suffix = '_thumb')
 
 // params sample values
