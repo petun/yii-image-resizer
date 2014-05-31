@@ -34,7 +34,7 @@ class phpthumb_functions {
 	}
 
 
-	function version_compare_replacement_sub($version1, $version2, $operator='') {
+	public static function version_compare_replacement_sub($version1, $version2, $operator='') {
 		// If you specify the third optional operator argument, you can test for a particular relationship.
 		// The possible operators are: <, lt, <=, le, >, gt, >=, ge, ==, =, eq, !=, <>, ne respectively.
 		// Using this argument, the function will return 1 if the relationship is the one specified by the operator, 0 otherwise.
@@ -94,7 +94,7 @@ class phpthumb_functions {
 	}
 
 
-	function version_compare_replacement($version1, $version2, $operator='') {
+	public static function version_compare_replacement($version1, $version2, $operator='') {
 		if (function_exists('version_compare')) {
 			// built into PHP v4.1.0+
 			return version_compare($version1, $version2, $operator);
@@ -358,7 +358,7 @@ class phpthumb_functions {
 	}
 
 
-	function ImageCreateFunction($x_size, $y_size) {
+	public static function ImageCreateFunction($x_size, $y_size) {
 		$ImageCreateFunction = 'ImageCreate';
 		if (phpthumb_functions::gd_version() >= 2.0) {
 			$ImageCreateFunction = 'ImageCreateTrueColor';
@@ -420,7 +420,7 @@ class phpthumb_functions {
 	}
 
 
-	function FunctionIsDisabled($function) {
+	public static function FunctionIsDisabled($function) {
 		static $DisabledFunctions = null;
 		if (is_null($DisabledFunctions)) {
 			$disable_functions_local  = explode(',',     strtolower(@ini_get('disable_functions')));
@@ -440,7 +440,7 @@ class phpthumb_functions {
 	}
 
 
-	function SafeExec($command) {
+	public static function SafeExec($command) {
 		static $AllowedExecFunctions = array();
 		if (empty($AllowedExecFunctions)) {
 			$AllowedExecFunctions = array('shell_exec'=>true, 'passthru'=>true, 'system'=>true, 'exec'=>true);
@@ -507,7 +507,7 @@ class phpthumb_functions {
 	}
 
 
-	function gd_version($fullstring=false) {
+	public static function gd_version($fullstring=false) {
 		static $cache_gd_version = array();
 		if (empty($cache_gd_version)) {
 			$gd_info = gd_info();
@@ -583,7 +583,7 @@ class phpthumb_functions {
 	}
 
 
-	function nonempty_min() {
+	public static function nonempty_min() {
 		$arg_list = func_get_args();
 		$acceptable = array();
 		foreach ($arg_list as $arg) {
@@ -604,7 +604,7 @@ class phpthumb_functions {
 		return str_pad($intstring, $minbytes, "\x00", STR_PAD_RIGHT);
 	}
 
-	function OneOfThese() {
+	public static function OneOfThese() {
 		// return the first useful (non-empty/non-zero/non-false) value from those passed
 		$arg_list = func_get_args();
 		foreach ($arg_list as $key => $value) {
@@ -615,7 +615,7 @@ class phpthumb_functions {
 		return false;
 	}
 
-	function CaseInsensitiveInArray($needle, $haystack) {
+	public static function CaseInsensitiveInArray($needle, $haystack) {
 		$needle = strtolower($needle);
 		foreach ($haystack as $key => $value) {
 			if (is_array($value)) {
