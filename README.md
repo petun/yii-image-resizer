@@ -31,4 +31,17 @@ $params = array('zc' => 1, 'w' => 300, 'h' => 200); // ZOOM CROP to 300x200
 $params = array('w' => 300, 'h' => 200); // Simple resize
 ```
 
+- Call methods to add instagram effects. Check [phpInstagramEffects] for Example.
+
+```php
+//simple add effects
+Yii::app()->resizeManager->filter($srcPath, $dstPath, $effect);
+
+// get Effect List. In model add 
+public function  getFilterList () {
+        return Yii::app()->resizeManager->getFilter();
+    }
+```
+
+[phpInstagramEffects]:https://github.com/zaachi/PHP-Instagram-effects
 [phpThumb documentation]:http://phpthumb.sourceforge.net/demo/docs/phpthumb.readme.txt
