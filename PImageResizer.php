@@ -94,7 +94,7 @@ class PImageResizer extends CApplicationComponent
 	        '7' => 'cool photo effect',
 	        '8' => 'emboss photo effect',
 	        '9' => 'sharpen photo effect',
-            '10' => 'old photo effect',
+            	'10' => 'old photo effect',
 	        '11' => 'sepia photo effect',
 	        '12' => 'old photo effect',
 	        '13' => 'colorise photo effect',
