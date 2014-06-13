@@ -85,7 +85,7 @@ class PImageResizer extends CApplicationComponent
      */
     public function  getFilter() {
         return array(
-            '1' => 'make gray image',
+            	'1' => 'make gray image',
 	        '2' => 'boost effect',
 	        '3' => 'fuzzy effect',
 	        '4' => 'aqua effect',
