@@ -2,6 +2,8 @@
 
 require_once(dirname(__FILE__) . '/thumb/phpthumb.class.php');
 
+require_once(dirname(__FILE__) . '/filters/effects.php');
+
 class PImageResizer extends CApplicationComponent
 {
 
@@ -60,4 +62,44 @@ class PImageResizer extends CApplicationComponent
 
 		return false;
 	}
+
+    /*
+     * Применят эффект к переданной картинке, и сохраняет туда же
+     * @param $src string - путь до изображения
+     * @param $dst string - путь до сохраняемого изображения
+     * @param $effect string - эффект
+     */
+    public function filter($src, $dst, $effect) {
+        // create image from img
+        $image = imagecreatefromjpeg($src);
+
+        // create new image with filter
+        //$out_image = $image;
+        new Effects($image, $effect);
+
+        imagejpeg($image, $dst);
+
+    }
+    /*
+     * Список фильтров
+     */
+    public function  getFilter() {
+        return array(
+            	'1' => 'make gray image',
+	        '2' => 'boost effect',
+	        '3' => 'fuzzy effect',
+	        '4' => 'aqua effect',
+	        '5' => 'light effect',
+	        '6' => 'old photo effect',
+	        '7' => 'cool photo effect',
+	        '8' => 'emboss photo effect',
+	        '9' => 'sharpen photo effect',
+            	'10' => 'old photo effect',
+	        '11' => 'sepia photo effect',
+	        '12' => 'old photo effect',
+	        '13' => 'colorise photo effect',
+	        '14' => 'bubbles photo effect',
+
+        );
+    }
 }
